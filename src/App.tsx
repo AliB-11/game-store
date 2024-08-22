@@ -16,7 +16,7 @@ function App() {
 
       <GridItem area="Genres">Popular Genres</GridItem>
 
-      <Show above="lg">
+      <Show above="xl">
         <GridItem area="aside">Aside</GridItem>
       </Show>
 
