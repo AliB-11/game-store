@@ -4,9 +4,15 @@ import GamesGrid from "./components/GamesGrid";
 import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
+import Platforms from "./components/Platforms";
+import { Platform } from "./hooks/useGames";
 
 function App() {
   const [newGenre, setNewGenre] = useState<Genre | null>(null);
+
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
 
   return (
     <Grid
@@ -34,7 +40,13 @@ function App() {
       </Show>
 
       <GridItem area="main">
-        <GamesGrid genre={newGenre}></GamesGrid>
+        <Platforms
+          selectedPlatform={(platform) => {
+            setSelectedPlatform(platform);
+          }}
+          newPlatform={selectedPlatform}
+        ></Platforms>
+        <GamesGrid genre={newGenre} platform={selectedPlatform}></GamesGrid>
       </GridItem>
     </Grid>
   );
