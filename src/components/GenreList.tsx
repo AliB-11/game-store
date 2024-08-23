@@ -1,6 +1,7 @@
 import { Button, HStack, Image, List, ListItem } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import Genreskeleton from "./Genreskeleton";
+import { useState } from "react";
 
 interface Props {
   filterGenre: (genre: Genre) => void;
@@ -8,6 +9,13 @@ interface Props {
 
 const GenreList = ({ filterGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
+
+  const [highlight, sethighlight] = useState(0);
+
+  const setFontWeight = (id: number) => {
+    const font = highlight === id ? "bold" : "300";
+    return font;
+  };
 
   if (error) return null;
 
@@ -26,9 +34,12 @@ const GenreList = ({ filterGenre }: Props) => {
               src={genre.image_background}
             ></Image>
             <Button
+              key={genre.id}
               variant="link"
-              fontSize={"lg"}
+              fontWeight={setFontWeight(genre.id)}
+              fontSize={"md"}
               onClick={() => {
+                sethighlight(genre.id);
                 filterGenre(genre);
               }}
             >

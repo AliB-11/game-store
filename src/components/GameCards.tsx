@@ -1,19 +1,8 @@
-import React from "react";
-import { GameObject, Platform } from "../hooks/useGames";
-import {
-  Box,
-  Card,
-  CardBody,
-  Center,
-  Heading,
-  HStack,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { GameObject } from "../hooks/useGames";
+import { Card, CardBody, Heading, HStack, Image } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import Rating from "./Rating";
 import getCroppedImage from "../services/image-url";
-import GameCardContainer from "./GameCardContainer";
 
 interface Props {
   game: GameObject;
