@@ -3,11 +3,12 @@ import { ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  skeleton: number;
 }
 
-const GameCardContainer = ({ children }: Props) => {
+const GameCardContainer = ({ children, skeleton }: Props) => {
   return (
-    <Box width={"350px"} borderRadius={"15px"} overflow={"hidden"}>
+    <Box borderRadius={"15px"} overflow={"hidden"} key={skeleton}>
       {children}
     </Box>
   );

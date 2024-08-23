@@ -1,7 +1,8 @@
-import { HStack, Image } from "@chakra-ui/react";
+import { HStack, Icon, Image, useColorMode } from "@chakra-ui/react";
 import EpicGames from "../assets/EpicGames.png";
 import Store from "../assets/Store.svg";
 import ColorModeSwitch from "./ColorModeSwitch";
+import { IoGameControllerOutline } from "react-icons/io5";
 
 const NavBar = () => {
   return (
@@ -11,7 +12,7 @@ const NavBar = () => {
       paddingRight={"30px"}
     >
       <HStack>
-        <Image src={EpicGames} boxSize="30px"></Image>
+        <Icon as={IoGameControllerOutline} boxSize={10} />
         <Image src={Store} boxSize="50px" marginLeft={"10px"}></Image>
       </HStack>
       <ColorModeSwitch></ColorModeSwitch>
