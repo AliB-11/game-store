@@ -1,7 +1,9 @@
 const getCroppedImage = (url :string) => {
   
-  const index =  url.indexOf('games/');
-  const newURL = url.slice(0,index) + 'crop/600/400/' + url.slice(index) 
+  if(!url) return '';
+  
+  const index =  url.indexOf('media/');
+  const newURL = url.slice(0, index + 6) + 'crop/600/400/' + url.slice(index+6) 
   return newURL
 
 
