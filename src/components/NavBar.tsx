@@ -1,5 +1,4 @@
 import { HStack, Icon, Image, useColorMode } from "@chakra-ui/react";
-import EpicGames from "../assets/EpicGames.png";
 import Store from "../assets/Store.svg";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { IoGameControllerOutline } from "react-icons/io5";
