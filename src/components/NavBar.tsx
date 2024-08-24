@@ -1,21 +1,36 @@
-import { HStack, Icon, Image, useColorMode } from "@chakra-ui/react";
+import { Box, Flex, HStack, Icon, Image } from "@chakra-ui/react";
+import { IoGameControllerOutline } from "react-icons/io5";
 import Store from "../assets/Store.svg";
 import ColorModeSwitch from "./ColorModeSwitch";
-import { IoGameControllerOutline } from "react-icons/io5";
+import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (search: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
   return (
-    <HStack
-      justifyContent={"space-between"}
+    <Flex
       padding={"15px"}
       paddingRight={"30px"}
+      justifyContent={"space-between"}
+      flexDirection={"row"}
     >
-      <HStack>
+      <HStack marginRight={4} width={110}>
         <Icon as={IoGameControllerOutline} boxSize={10} />
-        <Image src={Store} boxSize="50px" marginLeft={"10px"}></Image>
+        <Image src={Store} boxSize="50px" marginLeft={"5px"}></Image>
       </HStack>
-      <ColorModeSwitch></ColorModeSwitch>
-    </HStack>
+      <Box marginTop={2} flex={"1"}>
+        <SearchInput
+          onSearch={(search) => {
+            onSearch(search);
+          }}
+        ></SearchInput>
+      </Box>
+      <HStack marginLeft={4} marginTop={1}>
+        <ColorModeSwitch></ColorModeSwitch>
+      </HStack>
+    </Flex>
   );
 };
 
