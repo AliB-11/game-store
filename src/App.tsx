@@ -7,13 +7,14 @@ import { Genre } from "./hooks/useGenres";
 import Platforms from "./components/Platforms";
 import { Platform } from "./hooks/useGames";
 import OrderList, { Order } from "./components/OrderList";
-import { HttpStatusCode } from "axios";
+import Heading from "./components/Heading";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   orderType: Order | null;
   search: string | null;
+  name: string | null;
 }
 
 function App() {
@@ -49,7 +50,11 @@ function App() {
       </Show>
 
       <GridItem area="main">
-        <HStack marginX={5} marginBottom={5}>
+        <HStack marginX={5} marginBottom={4}>
+          <Heading gameQuery={gameQuery}></Heading>
+        </HStack>
+
+        <HStack marginX={5} marginBottom={4} spacing={5}>
           <Platforms
             selectedPlatform={(platform) => {
               setGameQuery({ ...gameQuery, platform });
