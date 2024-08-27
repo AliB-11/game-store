@@ -10,7 +10,7 @@ interface Props {
 }
 
 const RatingEmoji = ({ game }: Props) => {
-  if (game.rating_top === 0) return "";
+  if (game.rating_top === 0) return null;
 
   const ratings: { [key: number]: string } = {
     1: skip,
