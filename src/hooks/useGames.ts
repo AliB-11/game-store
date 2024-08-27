@@ -16,6 +16,7 @@ export interface GameObject {
   background_image: string;
   parent_platforms: {platform : Platform}[]; //parent_platforms is an array of objects where each object has a property called platform which points to a Platform object
   metacritic: number;
+  rating_top: number;
 }
 
 const useGames = (gameQuery: GameQuery) => useData<GameObject>("/games", {params: 

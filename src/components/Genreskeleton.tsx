@@ -1,5 +1,6 @@
 import {
   Box,
+  Heading,
   HStack,
   List,
   ListItem,
@@ -13,18 +14,23 @@ const Genreskeleton = () => {
   const skeletonArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
   return (
-    <List>
-      {skeletonArray.map((skeleton) => (
-        <ListItem key={skeleton} marginY={5}>
-          <HStack>
-            <SkeletonCircle key={skeleton} size="36px" />
-            <Skeleton height={"20px"} width={"100px"} borderRadius={"10%"}>
-              <SkeletonText></SkeletonText>
-            </Skeleton>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <Heading fontSize={"2xl"} marginBottom={3}>
+        Genres
+      </Heading>
+      <List>
+        {skeletonArray.map((skeleton) => (
+          <ListItem key={skeleton} marginY={5}>
+            <HStack>
+              <SkeletonCircle key={skeleton} size="36px" />
+              <Skeleton height={"20px"} width={"100px"} borderRadius={"10%"}>
+                <SkeletonText></SkeletonText>
+              </Skeleton>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 };
 
